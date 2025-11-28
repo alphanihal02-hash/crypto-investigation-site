@@ -25,15 +25,15 @@ export function SiteHeader() {
     setMounted(true)
   }, [])
 
-  // Before mounted, just show dark logo (or whichever you prefer)
+  // Before mounted, just show light logo (or whichever you prefer)
 let logoSrc = "/images/coincandid-logo-light.png"
 
 if (mounted) {
   const currentTheme = theme === "system" ? resolvedTheme : theme
   logoSrc =
     currentTheme === "light"
-      ? "/images/coincandid-logo-dark.png"
-      : "/images/coincandid-logo-light.png"
+      ? "/images/coincandid-logo-light.png" // light mode → light logo
+      : "/images/coincandid-logo-dark.png"  // dark mode → dark logo
 }
 
   return (
