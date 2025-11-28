@@ -6,8 +6,6 @@ import { Button } from "@/components/ui/button"
 import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
 import { ThemeToggle } from "@/components/theme-toggle"
-import { useTheme } from "next-themes"
-import { useEffect, useState } from "react"
 
 const nav = [
   { href: "/", label: "Home" },
@@ -17,26 +15,6 @@ const nav = [
 
 export function SiteHeader() {
   const pathname = usePathname()
-const { theme, resolvedTheme } = useTheme()
-const [mounted, setMounted] = useState(false)
-
-useEffect(() => {
-  setMounted(true)
-}, [])
-
-// 👇 Always decide theme like this
-const currentTheme = !mounted
-  ? "light" // First load logo LIGHT
-  : (theme === "system" ? resolvedTheme : theme) ?? "light"
-
-// 👇 FINAL RULE
-// Light mode  → Light logo
-// Dark mode   → Dark logo
-const logoSrc =
-  currentTheme === "light"
-    ? "/images/coincandid-logo-light.png"
-    : "/images/coincandid-logo-dark.png"
-
 
   return (
     <header className="border-b bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -46,12 +24,21 @@ const logoSrc =
           className="group inline-flex items-center gap-2"
           aria-label="CoinCandid home"
         >
+          {/* Light mode logo */}
           <Image
-            src={logoSrc}
+            src="/images/coincandid-logo-light.png"
             alt="CoinCandid logo"
             width={40}
             height={40}
-            className="h-10 w-auto"
+            className="h-10 w-auto dark:hidden"  // light me dikh, dark me chhup
+          />
+          {/* Dark mode logo */}
+          <Image
+            src="/images/coincandid-logo-dark.png"
+            alt="CoinCandid logo"
+            width={40}
+            height={40}
+            className="hidden h-10 w-auto dark:block" // sirf dark me dikh
           />
         </Link>
 
