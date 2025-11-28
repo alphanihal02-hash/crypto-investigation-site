@@ -3,6 +3,9 @@
 export default function Head() {
   return (
     <>
+      {/* Required default favicon (fallback) */}
+      <link rel="icon" href="/favicon.png" sizes="32x32" />
+
       {/* Light mode favicon */}
       <link
         rel="icon"
@@ -17,5 +20,5 @@ export default function Head() {
         media="(prefers-color-scheme: dark)"
       />
     </>
-  )
+  );
 }
