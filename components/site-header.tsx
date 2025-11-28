@@ -17,24 +17,26 @@ const nav = [
 
 export function SiteHeader() {
   const pathname = usePathname()
-  const { theme, resolvedTheme } = useTheme()
-  const [mounted, setMounted] = useState(false)
+const { theme, resolvedTheme } = useTheme()
+const [mounted, setMounted] = useState(false)
 
-  // Needed so theme matches on first client render (avoids hydration issues)
-  useEffect(() => {
-    setMounted(true)
-  }, [])
+useEffect(() => {
+  setMounted(true)
+}, [])
 
-  // Before mounted, just show light logo (or whichever you prefer)
-let logoSrc = "/images/coincandid-logo-light.png"
+// 👇 Always decide theme like this
+const currentTheme = !mounted
+  ? "light" // First load logo LIGHT
+  : (theme === "system" ? resolvedTheme : theme) ?? "light"
 
-if (mounted) {
-  const currentTheme = theme === "system" ? resolvedTheme : theme
-  logoSrc =
-    currentTheme === "light"
-      ? "/images/coincandid-logo-light.png" // light mode → light logo
-      : "/images/coincandid-logo-dark.png"  // dark mode → dark logo
-}
+// 👇 FINAL RULE
+// Light mode  → Light logo
+// Dark mode   → Dark logo
+const logoSrc =
+  currentTheme === "light"
+    ? "/images/coincandid-logo-light.png"
+    : "/images/coincandid-logo-dark.png"
+
 
   return (
     <header className="border-b bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
