@@ -3,17 +3,17 @@
 export default function Head() {
   return (
     <>
-      {/* Required default favicon (fallback) */}
-      <link rel="icon" href="/favicon.png" sizes="32x32" />
+      {/* Default favicon (required for all browsers) */}
+      <link rel="icon" href="/favicon.ico" />
 
-      {/* Light mode favicon */}
+      {/* Light mode icon */}
       <link
         rel="icon"
         href="/favicon-light.png"
         media="(prefers-color-scheme: light)"
       />
 
-      {/* Dark mode favicon */}
+      {/* Dark mode icon */}
       <link
         rel="icon"
         href="/favicon-dark.png"
