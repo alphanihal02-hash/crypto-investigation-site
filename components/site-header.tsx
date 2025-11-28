@@ -26,15 +26,15 @@ export function SiteHeader() {
   }, [])
 
   // Before mounted, just show dark logo (or whichever you prefer)
-  let logoSrc = "/images/coincandid-logo-dark.png"
+let logoSrc = "/images/coincandid-logo-light.png"
 
-  if (mounted) {
-    const currentTheme = theme === "system" ? resolvedTheme : theme
-    logoSrc =
-      currentTheme === "light"
-        ? "/images/coincandid-logo-light.png"
-        : "/images/coincandid-logo-dark.png"
-  }
+if (mounted) {
+  const currentTheme = theme === "system" ? resolvedTheme : theme
+  logoSrc =
+    currentTheme === "light"
+      ? "/images/coincandid-logo-dark.png"
+      : "/images/coincandid-logo-light.png"
+}
 
   return (
     <header className="border-b bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
