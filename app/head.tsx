@@ -3,22 +3,27 @@
 export default function Head() {
   return (
     <>
-      {/* Default favicon (required for all browsers) */}
-      <link rel="icon" href="/favicon.ico" />
-
-      {/* Light mode icon */}
+      {/* Main favicon (force refresh with ?v=2) */}
       <link
         rel="icon"
-        href="/favicon-light.png"
-        media="(prefers-color-scheme: light)"
+        type="image/x-icon"
+        href="/favicon.ico?v=2"
       />
 
-      {/* Dark mode icon */}
+      {/* PNG fallback (also cache-busted) */}
       <link
         rel="icon"
-        href="/favicon-dark.png"
-        media="(prefers-color-scheme: dark)"
+        type="image/png"
+        sizes="32x32"
+        href="/favicon.png?v=2"
+      />
+
+      {/* Optional: shortcut icon for some browsers */}
+      <link
+        rel="shortcut icon"
+        href="/favicon.ico?v=2"
+        type="image/x-icon"
       />
     </>
-  );
+  )
 }
