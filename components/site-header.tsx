@@ -19,29 +19,34 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 border-b bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-4">
-        <Link
-          href="/"
-          className="group inline-flex items-center gap-2"
-          aria-label="CoinCandid home"
-        >
-          {/* Light mode logo */}
-          <Image
-            src="/images/coincandid-logo-light.png"
-            alt="CoinCandid logo"
-            width={40}
-            height={40}
-            className="h-10 w-auto dark:hidden"  // light me dikh, dark me chhup
-          />
-          {/* Dark mode logo */}
-          <Image
-            src="/images/coincandid-logo-dark.png"
-            alt="CoinCandid logo"
-            width={40}
-            height={40}
-            className="hidden h-10 w-auto dark:block" // sirf dark me dikh
-          />
-        </Link>
+       <Link
+  href="/"
+  className="group inline-flex items-center gap-2"
+  aria-label="CoinCandid home"
+>
+  {/* Light mode logo */}
+  <Image
+    src="/images/coincandid-logo-light.png"
+    alt="CoinCandid logo"
+    width={40}
+    height={40}
+    className="h-10 w-auto dark:hidden"
+  />
 
+  {/* Dark mode logo */}
+  <Image
+    src="/images/coincandid-logo-dark.png"
+    alt="CoinCandid logo"
+    width={40}
+    height={40}
+    className="hidden h-10 w-auto dark:block"
+  />
+
+  {/* Logo Text */}
+  <span className="text-lg font-semibold text-black dark:text-white">
+    CoinCandid
+  </span>
+</Link>
         <nav className="hidden items-center gap-1 md:flex" aria-label="Main">
           {nav.map((item) => {
             const active =
