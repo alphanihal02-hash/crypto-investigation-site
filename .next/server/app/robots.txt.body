@@ -1,0 +1,5 @@
+User-Agent: *
+Allow: /
+
+Host: https://coincandid.com
+Sitemap: https://coincandid.com/sitemap.xml
