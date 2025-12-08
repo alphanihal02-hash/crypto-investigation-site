@@ -11,5 +11,5 @@ export default function AboutPage() {
         confidentially, accurately, and professionally.
       </p>
     </main>
-  )
+  );
 }
